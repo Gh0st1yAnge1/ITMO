@@ -160,7 +160,7 @@ chmod u=wx,g=wx,o=wx lab0/vulpix6
 #magcargojyn* отказывает в доступе, поэтому были изменены права доступа
 chmod 777 lab0/vulpix6
 chmod 777 lab0/globat0/jynx
-chmod 777 lab0/globat0
+chmod -R 777 lab0/globat0
 chmod 777 lab0/munna4
 chmod 777 lab0/munna4/magcargojyn*
 rm lab0/zorua7
