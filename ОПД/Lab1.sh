@@ -57,9 +57,7 @@ chmod 337 lab0/globat0/wynaut/globat0/ursaring
 chmod 771 lab0/globat0/wynaut/globat0/wynaut
 
 #2
-cd lab0
-ln -s globat0 Copy_5
-cd -
+ln -s lab0/globat0 lab0/Copy_5
 
 #3
 #vulpix6 отказывает в доступе, поэтому были изменены права доступа
@@ -70,9 +68,7 @@ chmod u=wx,g=wx,o=wx lab0/vulpix6
 #4
 #vulpix6 отказывает в доступе, поэтому были изменены права доступа
 chmod 777 lab0/vulpix6
-cd lab0/vulpix6
-ln -s ../dewgong5 excadrilldewgong
-cd -
+ln -s lab0/dewgong5 lab0/vulpix6/excadrilldewgong
 chmod u=wx,g=wx,o=wx lab0/vulpix6
 
 #5
@@ -93,9 +89,7 @@ chmod u=wx,g=wx,o=wx lab0/vulpix6
 #7
 #munna4 отказывает в изменении состояния каталога, поэтому были изменены права доступа
 chmod 777 lab0/munna4
-cd lab0/munna4
-ln ../jynx2 magcargojynx
-cd -
+ln lab0/jynx2 lab0/munna4/magcargojynx
 chmod 571 lab0/munna4
 
 #Task 4
@@ -115,7 +109,7 @@ chmod 777 lab0/vulpix6
 chmod 777 lab0/globat0/ursaring
 chmod 777 lab0/munna4/swanna
 chmod 777 lab0/globat0/wynaut/globat0/ursaring
-ls -lR lab0 2>/dev/null | grep " [^:/]*l$"| grep "^-" | sort -k9
+ls -lR lab0 2>/dev/null | grep "l$"| grep "^-" | sort -k9
 chmod u=wx,g=wx,o=wx lab0/vulpix6
 chmod 337 lab0/globat0/ursaring
 chmod 311 lab0/munna4/swanna
@@ -124,12 +118,8 @@ chmod 337 lab0/globat0/wynaut/globat0/ursaring
 #3
 #ursaring отказывает в доступе, поэтому были изменены права доступа
 chmod 777 lab0/globat0/ursaring
-chmod 777 lab0/globat0/wynaut/globat0/ursaring
-cd lab0/globat0
-ls 2>&1 | grep -r -n -i "h$"
-cd -
+cat lab0/globat0/* 2>&1 | grep -n -i "h$" 
 chmod 337 lab0/globat0/ursaring
-chmod 337 lab0/globat0/wynaut/globat0/ursaring
 #не было выведено ничего, потому что в единственном файле jynx каталога lab0 нет строк, заканчивающихся на "h"
 
 #4
@@ -137,8 +127,6 @@ chmod 337 lab0/globat0/wynaut/globat0/ursaring
 chmod 777 lab0/jynx2
 wc -m lab0/jynx2 2>&1 >> lab0/jynx2
 chmod 444 lab0/jynx2
-chmod 337 lab0/globat0/wynaut/globat0/ursaring
-
 #5
 #vulpix6 отказывает в доступе, поэтому были изменены права доступа
 chmod 777 lab0/vulpix6
@@ -159,10 +147,8 @@ chmod u=wx,g=wx,o=wx lab0/vulpix6
 #munna4 отказывает в доступе, поэтому были изменены права доступа
 #magcargojyn* отказывает в доступе, поэтому были изменены права доступа
 chmod 777 lab0/vulpix6
-chmod 777 lab0/globat0/jynx
 chmod -R 777 lab0/globat0
-chmod 777 lab0/munna4
-chmod 777 lab0/munna4/magcargojyn*
+chmod -R 777 lab0/munna4
 rm lab0/zorua7
 rm lab0/vulpix6/infernape
 rm -r lab0/Copy*
@@ -171,3 +157,6 @@ rm -rf lab0/globat0
 rmdir lab0/vulpix6/zweilous
 chmod u=wx,g=wx,o=wx lab0/vulpix6
 chmod 571 lab0/munna4
+chmod 066 lab0/munna4/cherrim
+chmod u=r,g=r,o=r lab0/munna4/magcargo
+chmod 311 lab0/munna4/swanna
