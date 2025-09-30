@@ -97,9 +97,14 @@ chmod 571 lab0/munna4
 #1
 #vulpix6 отказывает в доступе, поэтому были изменены права доступа
 mkdir lab0/tmp
-chmod 777 lab0/vulpix6
-wc -w lab0/globat0/jynx lab0/munna4/cherrim lab0/munna4/magcargo lab0/vulpix6/feebas >lab0/tmp/result 2>/tmp/errors  
+chmod -R 777 lab0
+chmod -R 777 lab0/vulpix6
+chmod -R 777 lab0/munna4
+chmod -R 777 lab0/globat0
+wc -w lab0/globat0/jynx lab0/munna4/cherrim lab0/munna4/magcargo lab0/vulpix6/feebas >lab0/tmp/result 2>/tmp/erro_502467  
 chmod u=wx,g=wx,o=wx lab0/vulpix6
+chmod u=rx,g=x,o=w lab0/globat0
+chmod 571 lab0/munna4
 
 #2
 #vulpix6 отказывает в доступе, поэтому были изменены права доступа
@@ -137,7 +142,7 @@ chmod u=wx,g=wx,o=wx lab0/vulpix6
 #6
 #vulpix6 отказывает в доступе, поэтому были изменены права доступа
 chmod 777 lab0/vulpix6
-cat lab0/globat0/jynx lab0/munna4/cherrim lab0/munna4/magcargo lab0/vulpix6/feebas 2>lab0/tmp/errors | grep -v "k$"
+cat lab0/globat0/jynx lab0/munna4/cherrim lab0/munna4/magcargo lab0/vulpix6/feebas 2>lab0/tmp/erro_502467 | grep -v "k$"
 chmod u=wx,g=wx,o=wx lab0/vulpix6
 
 #Task 5
