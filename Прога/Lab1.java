@@ -15,22 +15,19 @@ public class Lab1 {
         System.out.println();
         out(matrix(x, w, w.length, x.length));
     }
+    
     public static double[][] matrix(double[] masX, short[] masW ,int first, int second) {
         double[][] wx = new double[first][second];
         for (int i = 0; i < wx.length; i++) {
             for (int j = 0; j < wx[i].length; j++) {
                 switch (masW[i]) {
-                    case 7:
-                        wx[i][j] = Math.cos(Math.tan(Math.pow(masX[j], masX[j] * (masX[j] + 0.25))));
-                        break;
-                    case 9, 10, 11, 13, 14, 15, 16, 18:
-                        wx[i][j] = Math.cos(Math.log(Math.abs(masX[j])));
-                        break;
-                    default:
+                    case 7 -> wx[i][j] = Math.cos(Math.tan(Math.pow(masX[j], masX[j] * (masX[j] + 0.25))));
+                    case 9, 10, 11, 13, 14, 15, 16, 18 -> wx[i][j] = Math.cos(Math.log(Math.abs(masX[j])));
+                    default -> {
                         double ground = 1 / (Math.pow(Math.E, 2 * ((Math.pow(2 * ((Math.abs(masX[j]) + 1) / Math.abs(masX[j])), 2)) + 1) / Math.PI));
                         double sky = Math.pow(Math.atan(Math.pow(Math.E, -Math.abs(masX[j]))), (Math.pow(2 / (masX[j] - 1 / 3), masX[j] / 3)) + 1 / 2);
                         wx[i][j] = Math.atan(Math.pow(ground, sky));
-                        break;
+                    }
                 }
             }
         }
@@ -40,8 +37,7 @@ public class Lab1 {
     public static void out(double[][] wx) {
         for(double[] row: wx){
             for (double value: row){
-                String result = String.format("%.3f", value);
-                System.out.printf(result + " ");
+                System.out.print(String.format("%.3f", value) + " ");
             }
             System.out.println(" ");
         }
