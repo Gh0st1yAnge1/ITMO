@@ -4,13 +4,15 @@ public class Lab1 {
         short[] w = new short[16];
         for (int i = 0; i < 16; i++) {
             w[i] = (short) (i + 5);
+            System.out.print(w[i] + " ");   
         }
-        System.out.print(w);
+        System.out.println();
         double[] x = new double[20];
         for (int i = 0; i < x.length; i++) {
             x[i] = -15.0 + (12.0 - (-15.0)) * Math.random();
+            System.out.print(x[i] + " ");
         }
-        System.out.print(x);
+        System.out.println();
         out(matrix(x, w, w.length, x.length));
     }
     public static double[][] matrix(double[] masX, short[] masW ,int first, int second) {
@@ -34,11 +36,12 @@ public class Lab1 {
         }
         return wx;
     }
+
     public static void out(double[][] wx) {
-        for (int i = 0; i < wx.length; i++) {
-            for (int j = 0; j < wx[i].length; j++) {
-                String result = String.format("%.3f", wx[i][j]);
-                System.out.print(result + " ");
+        for(double[] row: wx){
+            for (double value: row){
+                String result = String.format("%.3f", value);
+                System.out.printf(result + " ");
             }
             System.out.println(" ");
         }
