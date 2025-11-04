@@ -1,0 +1,70 @@
+schedule:
+  day:
+    - name: Tuesday
+      lessons:
+        - subject: Linear algebra
+          type: Lecture
+          teacher: Koltsova Tatyana Borisovna
+          place: Kronverskiy av., 49
+          room: '1506'
+          time:
+            start: '09:50'
+            end: '11:20'
+        - subject: Linear algebra
+          type: Practical lesson
+          teacher: Tanchenko Julia Valerievna
+          place: Kronverskiy av., 49
+          room: 2306/1
+          time:
+            start: '11:30'
+            end: '13:00'
+        - subject: Mathematical analysis
+          type: Lecture
+          teacher: Koltsova Tatyana Borisovna
+          place: Kronverskiy av., 49
+          room: '1506'
+          time:
+            start: '13:30'
+            end: '15:00'
+        - subject: Mathematical analysis
+          type: Practical lesson
+          teacher: Mitina Tatyana Evgenievna
+          place: Kronverskiy av., 49
+          room: 2306/2
+          time:
+            start: '15:30'
+            end: '17:00'
+        - subject: Athletics
+          type: Sports lesson
+          teacher: Volkova Kseniya Nikolaevna
+          place: Raevskogo av., 16
+          room: V.I.Alekseev sports complex
+          time:
+            start: '19:30'
+            end: '20:30'
+    - name: Thursday
+      lessons:
+        - subject: Russia in the history of modern international relations
+          type: Practical lesson
+          teacher: Bogomazov Nikolay Ivanovich
+          place: Kronverskiy av., 49
+          room: '2414'
+          time:
+            start: '09:50'
+            end: '11:20'
+        - subject: Russia in the history of modern international relations
+          type: Lecture
+          teacher: Bogomazov Nikolay Ivanovich
+          place: Kronverskiy av., 49
+          room: '2337'
+          time:
+            start: '11:30'
+            end: '13:00'
+        - subject: Athletics
+          type: Sports lesson
+          teacher: Volkova Kseniya Nikolaevna
+          place: Raevskogo av., 16
+          room: V.I.Alekseev sports complex
+          time:
+            start: '19:30'
+            end: '20:30'
