@@ -1,3 +1,7 @@
+#Author = Shalabodov Yaroslav Dmitrievich
+#Group = P3110
+#Date =  19.11.25
+
 import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import Border, Side
