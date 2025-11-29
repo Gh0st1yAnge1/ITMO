@@ -1,0 +1,1 @@
+public record Place(String place, String time) { }
