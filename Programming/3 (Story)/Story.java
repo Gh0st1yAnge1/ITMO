@@ -9,5 +9,7 @@ public class Story {
         System.out.println(text);
         text.preparing();
         text.part1();
+        text.part2();
+        text.part3();
     }
 }

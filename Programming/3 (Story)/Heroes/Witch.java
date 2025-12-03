@@ -1,17 +1,27 @@
 package Heroes;
 
-public class Witch extends Hero{
+import Interface.Appearance;
 
-    public Witch(int age, double weight, double height, String name){
-        super(age, weight, height, name);
-        this.age = age;
-        this.weight = weight;
-        this.height = height;
+public class Witch extends Hero implements Appearance {
+
+    public Witch(Names name, Emotion emotion){
+        super(name, emotion);
         this.name = name;
+        this.emotion = emotion;
+    }
+
+    @Override
+    public void methodOfAppearance() {
+        System.out.println("Witch " + name + " flew up inside on the broom.");
+    }
+
+    @Override
+    public void showEmotion() {
+        super.showEmotion();
     }
 
     @Override
     public String toString() {
-        return "witch";
+        return "Witch " + name;
     }
 }

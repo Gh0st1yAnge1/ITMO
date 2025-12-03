@@ -1,20 +1,20 @@
 package Heroes;
 
 public class Hero{
-    protected int age;
-    protected double weight;
-    protected double height;
-    protected String name;
+    protected Names name;
+    protected Emotion emotion;
 
-    public Hero(int age, double weight, double height, String name){
-        this.age = age;
-        this.weight = weight;
-        this.height = height;
+    public Hero(Names name, Emotion emotion){
         this.name = name;
+        this.emotion = emotion;
+    }
+
+    public void showEmotion(){
+        System.out.print(emotion);
     }
 
     @Override
     public String toString() {
-        return "hero";
+        return "Hero" + name;
     }
 }
