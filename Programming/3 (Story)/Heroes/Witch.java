@@ -4,20 +4,24 @@ import Interface.Appearance;
 
 public class Witch extends Hero implements Appearance {
 
-    public Witch(Names name, Emotion emotion){
-        super(name, emotion);
+    public Witch(Names name){
+        super(name);
         this.name = name;
-        this.emotion = emotion;
     }
 
     @Override
-    public void methodOfAppearance() {
-        System.out.println("Witch " + name + " flew up inside on the broom.");
+    public String methodOfAppearance() {
+        return super.methodOfAppearance();
     }
 
     @Override
-    public void showEmotion() {
-        super.showEmotion();
+    public void setEmotion() {
+        super.setEmotion();
+    }
+
+    @Override
+    public String showEmotion() {
+        return super.showEmotion();
     }
 
     @Override

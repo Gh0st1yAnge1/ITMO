@@ -1,5 +1,5 @@
 package Dishes;
 
 public enum PreciousStones {
-    brilliants, rubies, emeralds, sapphires
+    BRILLIANTS, RUBIES, EMERALDS, SAPPIRES, ANOTHER_STONE
 }

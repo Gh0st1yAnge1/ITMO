@@ -2,15 +2,19 @@ package Heroes;
 
 public class Princess extends Hero{
 
-    public Princess(Names name, Emotion emotion){
-        super(name, emotion);
+    public Princess(Names name){
+        super(name);
         this.name = name;
-        this.emotion = emotion;
     }
 
     @Override
-    public void showEmotion() {
-        super.showEmotion();
+    public void setEmotion() {
+        super.setEmotion();
+    }
+
+    @Override
+    public String showEmotion() {
+        return super.showEmotion();
     }
 
     @Override

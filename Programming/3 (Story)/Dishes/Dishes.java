@@ -1,8 +1,7 @@
 package Dishes;
 
-import Interface.Appearance;
-
-public abstract class Dishes implements Appearance {
+public abstract class Dishes{
     @Override
     public abstract String toString();
+
 }

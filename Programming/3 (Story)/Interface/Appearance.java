@@ -1,7 +1,10 @@
 package Interface;
 
+import Dishes.DinnerDishes;
+
 public interface Appearance{
-    default void methodOfAppearance(){
-        System.out.println("Something appears");
+    default String methodOfAppearance(){
+        return " appeared";
     }
+
 }

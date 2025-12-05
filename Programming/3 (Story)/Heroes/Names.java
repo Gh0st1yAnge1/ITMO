@@ -1,7 +1,7 @@
 package Heroes;
 
 public enum Names {
-    Alice,
-    Jenny, Judy, Shain, Hanna, Sidney, Mary, Katrin,
-    Delayla;
+    ALICE,
+    JENNY, JUDY, SHAIN, HANNA, SIDNEY, MARY, KATRIN,
+    DELAYLA;
 }

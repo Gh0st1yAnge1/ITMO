@@ -1,0 +1,7 @@
+package Gifts;
+
+public enum Toys {
+    TEDDY_BEAR, TOY_PRINCESS, DRESS, DOLL,
+    TOY_CASTLE, BOX_OF_SWEETS, BOOK_OF_FAIRY_TALES,
+    HANDMADE_TOY
+}

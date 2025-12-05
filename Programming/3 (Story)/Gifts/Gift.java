@@ -2,18 +2,20 @@ package Gifts;
 
 import Interface.*;
 
-public record Gift(Gifts gift, Qualities quality) implements Appearance{
+public record Gift(Toys toy, Qualities quality) implements Appearance{
+
     @Override
-    public void methodOfAppearance() {
-        switch (gift){
-            case teddy_bear, toy_castle, toy_princess -> System.out.print(" bumped from the sky on the ground.");
-            case book_of_fairy_tales, box_of_sweets, doll -> System.out.print(" came out of the ground near.");
-            case dress -> System.out.print(" wrapped the young lady's body.");
-        };
+    public String methodOfAppearance() {
+        switch (toy){
+            case TEDDY_BEAR, TOY_CASTLE, TOY_PRINCESS -> {return "bumped from the sky on the ground.";}
+            case BOOK_OF_FAIRY_TALES, BOX_OF_SWEETS, DOLL -> {return "came out of the ground near.";}
+            case DRESS -> {return "wrapped the young lady's body.";}
+            default -> {return "something appears";}
+        }
     }
 
     @Override
     public String toString() {
-        return gift + " and " + quality + " for young lady";
+        return toy + " and " + quality + " for young lady";
     }
 }

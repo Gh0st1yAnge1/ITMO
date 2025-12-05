@@ -1,5 +1,5 @@
 package Heroes;
 
 public enum Emotion {
-    thrilled, shocked, delighted, overjoyed, astonished, ecstatic, amazed, amused, stunned
+    THRILLED, SHOCKED, DELIGHTED, OVERJOYED, ASTONISHED, ECSTATIC, AMAZED, AMUSED, STUNNED
 }
