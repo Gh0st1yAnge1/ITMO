@@ -1,0 +1,7 @@
+package Gifts;
+
+public enum Qualities {
+    KINDNESS, POLITENESS, BEAUTY, DETERMINATION,
+    INTELLIGENCE, ENDURANCE, COURAGE,
+    ANOTHER_QUALITY
+}
