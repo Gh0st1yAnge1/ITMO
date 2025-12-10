@@ -1,27 +1,20 @@
 package Heroes;
 
-import Interface.Appearance;
+public class Witch extends Hero {
 
-public class Witch extends Hero implements Appearance {
-
-    public Witch(Names name){
+    public Witch(String  name){
         super(name);
         this.name = name;
     }
 
     @Override
-    public String methodOfAppearance() {
-        return super.methodOfAppearance();
+    public void setEmotion(Emotion emotion) {
+        this.emotion = emotion;
     }
 
     @Override
-    public void setEmotion() {
-        super.setEmotion();
-    }
-
-    @Override
-    public String showEmotion() {
-        return super.showEmotion();
+    public void showEmotion() {
+        super.showEmotion();
     }
 
     @Override

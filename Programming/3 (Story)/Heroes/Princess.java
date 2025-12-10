@@ -1,20 +1,28 @@
 package Heroes;
 
-public class Princess extends Hero{
+import Gifts.Gift;
+import Interfaces.RecieveGift;
 
-    public Princess(Names name){
+public class Princess extends Hero implements RecieveGift {
+
+    public Princess(String name){
         super(name);
         this.name = name;
     }
 
     @Override
-    public void setEmotion() {
-        super.setEmotion();
+    public void setEmotion(Emotion emotion) {
+        this.emotion = emotion;
     }
 
     @Override
-    public String showEmotion() {
-        return super.showEmotion();
+    public void showEmotion() {
+        super.showEmotion();
+    }
+
+    @Override
+    public void recieveGift(Gift gift) {
+        System.out.print(name); RecieveGift.super.recieveGift(gift);
     }
 
     @Override
