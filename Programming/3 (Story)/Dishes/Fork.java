@@ -1,6 +1,6 @@
-package Dishes;
+package dishes;
 
-public class Fork extends Dishes{
+public class Fork{
     protected Material material;
 
     public Fork(Material material){

@@ -1,6 +1,6 @@
-package Dishes;
+package dishes;
 
-public class Knife extends Dishes{
+public class Knife{
     protected Material material;
 
     public Knife(Material material){
