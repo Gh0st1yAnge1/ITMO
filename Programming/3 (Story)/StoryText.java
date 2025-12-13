@@ -1,36 +1,45 @@
-import Dishes.*;
-import Gifts.*;                                    //на части было разбито, потому что там был текст истории (part1() ,part2(), part3())
-import Heroes.*;                                   //если нужно, я его добавлю, либо все выводы сделаю в одном методе printStory()
-import Interfaces.*;                               //но, думаю, что сам текст истории тут никакой роли не играет)
+import dishes.*;
+import exceptions.DoNotLikeGift;
+import exceptions.GiftOverflow;
+import gifts.*;
+import heroes.*;
+import java.util.ArrayList;
 
-import java.util.ArrayList;                        //массивы с енамами сделаны, чтобы вручную каждой волшебнице
-                                                   //не добавлять предметы
 public class StoryText {
-    ArrayList<Enchantress> enchantresses = new ArrayList<>();
-    Princess princess = new Princess("Alice");
-    Witch witch = new Witch("Delayla");
 
+
+    ArrayList<Enchantress> enchantresses = new ArrayList<>();
+    Princess princess = new Princess("Alice", Emotion.AMUSED);
+    Witch witch = new Witch("Delayla", Emotion.STUNNED);
 
     public void preparing(){
         String[] names = {"Sidney", "Katrin", "Jenny", "Hanna", "Mary", "Judy", "Shain"};
         Emotion[] emotions = {Emotion.AMAZED, Emotion.ASTONISHED, Emotion.DELIGHTED, Emotion.ECSTATIC, Emotion.OVERJOYED, Emotion.SHOCKED, Emotion.THRILLED};
         for (int i = 0; i < 7; i++){
-            Enchantress e = new Enchantress(names[i]);
-            e.setEmotion(emotions[i]);
+            Enchantress e = new Enchantress(names[i], emotions[i]);
             enchantresses.add(e);
         }
     }
 
     public void part1(){
-        Toys[] toys = {Toys.TOY_CASTLE, Toys.TOY_PRINCESS, Toys.DOLL, Toys.DRESS, Toys.BOOK_OF_FAIRY_TALES, Toys.BOX_OF_SWEETS, Toys.TEDDY_BEAR};
+        Toys[] toys = {Toys.TOY_PRINCESS, Toys.DOLL, Toys.DRESS, Toys.BOOK_OF_FAIRY_TALES, Toys.TOY_CASTLE, Toys.BOX_OF_SWEETS, Toys.TEDDY_BEAR};
         Qualities[] qualities = {Qualities.BEAUTY, Qualities.COURAGE, Qualities.DETERMINATION, Qualities.ENDURANCE, Qualities.INTELLIGENCE, Qualities.KINDNESS, Qualities.POLITENESS};
+        System.out.println(princess);
         for (int i = 0; i < 7; i++){
+
             enchantresses.get(i).beInvited();
-            princess.recieveGift(enchantresses.get(i).makeGift(toys[i], qualities[i]));
-            System.out.println("\n");
+            Gift gift = new Gift(toys[i], qualities[i]);
+
+            try{
+                enchantresses.get(i).makeGift(gift, princess);
+            } catch (GiftOverflow go){
+                System.out.println(go.getMessage());
+                System.out.println("\n");
+                break;
+            } catch (DoNotLikeGift dnlg){
+                System.out.println(dnlg.getMessage());
+            }
         }
-        princess.setEmotion(Emotion.AMUSED);
-        princess.showEmotion();
     }
 
     public void part2(){
@@ -42,15 +51,15 @@ public class StoryText {
             enchantresses.get(i).getSetOfDishes(new SetOfDishes(new Plate(materials[i%4], stones[i%4]),
                     new Fork(materials[i%4]), new Spoon(materials[i%4]), new Knife(materials[i%4]), new Glass(materials[i%4])));
             enchantresses.get(i).getDinner(dinnerDishes[i]);
-            enchantresses.get(i).showEmotion();
+            System.out.println(enchantresses.get(i));
             System.out.println("\n");
         }
-
+        System.out.println(witch + "\n");
     }
 
     public void part3(){
-        witch.setEmotion(Emotion.STUNNED);
-        witch.showEmotion();
+        System.out.println(princess + " got this gifts:");
+        princess.showGifts();
     }
 
     @Override

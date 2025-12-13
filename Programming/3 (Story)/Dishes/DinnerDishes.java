@@ -1,4 +1,4 @@
-package Dishes;
+package dishes;
 
 public enum DinnerDishes{
     CORONATION_CHICKEN, ETON_MESS, SALMON_AND_CUCUMBER_SANDWICHES,

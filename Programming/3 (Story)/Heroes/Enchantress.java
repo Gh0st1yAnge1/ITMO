@@ -1,30 +1,23 @@
-package Heroes;
+package heroes;
 
-import Dishes.*;
-import Gifts.*;
-import Interfaces.Invite;
-import Interfaces.MakeGift;
+import dishes.*;
+import exceptions.DoNotLikeGift;
+import exceptions.GiftOverflow;
+import gifts.Gift;
+import gifts.Toys;
+import interfaces.Invite;
+import interfaces.Makegift;
+import interfaces.Reciever;
 
-public class Enchantress extends Hero implements Invite, MakeGift {
+public class Enchantress extends Hero implements Invite, Makegift{
 
-    public Enchantress(String name){
-        super(name);
+    private String name;
+    private Emotion emotion;
+
+    public Enchantress(String name, Emotion emotion){
+        super(name, emotion);
         this.name = name;
-    }
-
-    @Override
-    public  void setEmotion(Emotion emotion) {
         this.emotion = emotion;
-    }
-
-    @Override
-    public void showEmotion() {
-        super.showEmotion();
-    }
-
-    @Override
-    public Gift makeGift(Toys toy, Qualities qualitiy) {
-        return MakeGift.super.makeGift(toy, qualitiy);
     }
 
     @Override
@@ -42,6 +35,15 @@ public class Enchantress extends Hero implements Invite, MakeGift {
 
     @Override
     public String toString() {
-        return "Enchantress " + name;
+        return "Enchantress " + name + " feels " + emotion;
     }
+
+    @Override
+    public Gift makeGift(Gift gift, Reciever hero) throws DoNotLikeGift, GiftOverflow{
+        if (gift.toy() == Toys.TOY_CASTLE || gift.toy() == Toys.DRESS){
+            throw new DoNotLikeGift();
+        }
+        return hero.recieveGift(gift);
+    }
+
 }

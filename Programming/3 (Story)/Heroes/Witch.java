@@ -1,24 +1,18 @@
-package Heroes;
+package heroes;
 
 public class Witch extends Hero {
 
-    public Witch(String  name){
-        super(name);
-        this.name = name;
-    }
+    private String name;
+    private Emotion emotion;
 
-    @Override
-    public void setEmotion(Emotion emotion) {
+    public Witch(String name, Emotion emotion){
+        super(name, emotion);
+        this.name = name;
         this.emotion = emotion;
     }
 
     @Override
-    public void showEmotion() {
-        super.showEmotion();
-    }
-
-    @Override
     public String toString() {
-        return "Witch " + name;
+        return "Witch " + name + " feels " + emotion;
     }
 }

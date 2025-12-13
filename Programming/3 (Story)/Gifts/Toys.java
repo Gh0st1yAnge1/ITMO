@@ -1,4 +1,4 @@
-package Gifts;
+package gifts;
 
 public enum Toys {
     TEDDY_BEAR, TOY_PRINCESS, DRESS, DOLL,

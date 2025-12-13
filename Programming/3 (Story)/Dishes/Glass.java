@@ -1,4 +1,4 @@
-package Dishes;
+package dishes;
 
 public class Glass{
     protected Material material;

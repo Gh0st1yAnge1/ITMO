@@ -1,9 +1,14 @@
-package Gifts;
+package gifts;
+
 
 public record Gift(Toys toy, Qualities quality){
 
     @Override
     public String toString() {
-        return toy + " and " + quality;
+        return "Gift{" +
+                "toy=" + toy +
+                ", quality=" + quality +
+                '}';
     }
 }
+

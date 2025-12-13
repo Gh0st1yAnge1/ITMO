@@ -1,9 +1,9 @@
-package Interfaces;
+package interfaces;
 
-import Gifts.*;
+import exceptions.DoNotLikeGift;
+import exceptions.GiftOverflow;
+import gifts.Gift;
 
-public interface MakeGift {
-    default Gift makeGift(Toys toy, Qualities qualitiy){
-        return new Gift(toy, qualitiy);
-    }
+public interface Makegift{
+     Gift makeGift(Gift gift, Reciever hero) throws DoNotLikeGift, GiftOverflow;
 }

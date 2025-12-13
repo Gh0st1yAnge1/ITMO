@@ -1,32 +1,38 @@
-package Heroes;
+package heroes;
 
-import Gifts.Gift;
-import Interfaces.RecieveGift;
+import exceptions.GiftOverflow;
+import gifts.Gift;
+import interfaces.Reciever;
 
-public class Princess extends Hero implements RecieveGift {
+public class Princess extends Hero implements Reciever {
 
-    public Princess(String name){
-        super(name);
+    private String name;
+    private Emotion emotion;
+
+
+    public Princess(String name, Emotion emotion){
+        super(name, emotion);
         this.name = name;
-    }
-
-    @Override
-    public void setEmotion(Emotion emotion) {
         this.emotion = emotion;
     }
 
-    @Override
-    public void showEmotion() {
-        super.showEmotion();
-    }
-
-    @Override
-    public void recieveGift(Gift gift) {
-        System.out.print(name); RecieveGift.super.recieveGift(gift);
+    public void showGifts(){
+        System.out.println(christineGifts);
     }
 
     @Override
     public String toString() {
-        return "Princess " + name;
+        return "Princess " + name + " feels " + emotion;
+    }
+
+    @Override
+    public Gift recieveGift(Gift gift) throws GiftOverflow {
+        if (christineGifts.size() == 4){
+            throw new GiftOverflow();
+        } else{
+            christineGifts.add(gift);
+            System.out.println(name + " got " + gift);
+        }
+        return gift;
     }
 }

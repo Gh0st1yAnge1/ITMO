@@ -1,4 +1,4 @@
-package Dishes;
+package dishes;
 
 public class Fork{
     protected Material material;
