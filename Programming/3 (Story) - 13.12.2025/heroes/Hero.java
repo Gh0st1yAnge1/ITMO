@@ -1,7 +1,6 @@
 package heroes;
 
 import gifts.Gift;
-
 import java.util.ArrayList;
 
 public abstract class Hero{
