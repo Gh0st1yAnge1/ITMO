@@ -1,6 +1,6 @@
-package Dishes;
+package dishes;
 
-public class Plate extends Dishes{
+public class Plate{
     protected Material material;
     protected PreciousStones stones;
 

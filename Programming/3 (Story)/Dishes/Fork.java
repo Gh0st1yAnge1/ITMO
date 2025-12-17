@@ -1,14 +1,14 @@
-package Dishes;
+package dishes;
 
-public class Knife extends Dishes{
+public class Fork{
     protected Material material;
 
-    public Knife(Material material){
+    public Fork(Material material){
         this.material = material;
     }
 
     @Override
     public String toString() {
-        return material + " knife";
+        return material + " fork";
     }
 }

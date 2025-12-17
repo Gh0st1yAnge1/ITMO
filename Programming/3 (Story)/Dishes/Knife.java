@@ -1,14 +1,14 @@
-package Dishes;
+package dishes;
 
-public class Glass extends Dishes{
+public class Knife{
     protected Material material;
 
-    public Glass(Material material){
+    public Knife(Material material){
         this.material = material;
     }
 
     @Override
     public String toString() {
-        return material + " glass";
+        return material + " knife";
     }
 }
