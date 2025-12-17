@@ -1,44 +1,39 @@
-package Heroes;
+package heroes;
 
-import Interface.Appearance;
+import gifts.Gift;
 
-public class Hero implements Appearance {
-    protected Names name;
-    protected Emotion emotion;
+import java.util.ArrayList;
 
-    public Hero(Names name){
+public abstract class Hero{
+
+    private String name;
+    private Emotion emotion;
+    protected ArrayList<Gift> christineGifts = new ArrayList<>();
+
+
+    public Hero(String name, Emotion emotion){
+        this.name = name;
+        this.emotion = emotion;
+    }
+
+    public void setName(String name){
         this.name = name;
     }
 
-    @Override
-    public String methodOfAppearance() {
-        switch (name){
-            case DELAYLA -> {return name + " flew up inside on the broom";}
-            case SIDNEY, HANNA, SHAIN, JUDY, JENNY, MARY, KATRIN -> {return name + " appeared with clap";}
-            default -> {return name + " came";}
-        }
+    public String getName(){
+        return name;
     }
 
-    public void setEmotion(){
-        switch (name){
-            case ALICE -> emotion = Emotion.AMAZED;
-            case JUDY ->  emotion = Emotion.ASTONISHED;
-            case MARY -> emotion = Emotion.AMUSED;
-            case HANNA -> emotion = Emotion.ECSTATIC;
-            case JENNY -> emotion = Emotion.DELIGHTED;
-            case SHAIN -> emotion = Emotion.OVERJOYED;
-            case KATRIN ->  emotion = Emotion.SHOCKED;
-            case SIDNEY -> emotion = Emotion.THRILLED;
-            case DELAYLA -> emotion = Emotion.STUNNED;
-        }
+    public void setEmotion(Emotion emotion){
+        this.emotion = emotion;
     }
 
-    public String showEmotion(){
-        return name + " was " + emotion;
+    public Emotion getEmotion(){
+        return emotion;
     }
 
     @Override
     public String toString() {
-        return "Hero" + name;
+        return "Hero" + name + " feels " + emotion;
     }
 }

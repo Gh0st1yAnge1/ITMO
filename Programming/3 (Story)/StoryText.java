@@ -1,66 +1,65 @@
-import Dishes.*;
-import Heroes.*;
-import Gifts.*;
-import Interface.*;
-
+import dishes.*;
+import exceptions.DoNotLikeGift;
+import exceptions.GiftOverflow;
+import gifts.*;
+import heroes.*;
 import java.util.ArrayList;
 
 public class StoryText {
-    ArrayList<Enchantress> enchantresses = new ArrayList<>();
-    Princess princess = new Princess(Names.ALICE);
-    Witch witch = new Witch(Names.DELAYLA);
 
+
+    ArrayList<Enchantress> enchantresses = new ArrayList<>();
+    Princess princess = new Princess("Alice", Emotion.AMUSED);
+    Witch witch = new Witch("Delayla", Emotion.STUNNED);
 
     public void preparing(){
-
-        Names[] names = {Names.SIDNEY, Names.KATRIN, Names.JENNY, Names.HANNA, Names.MARY, Names.JUDY, Names.SHAIN};
-        princess.setEmotion();
-        witch.setEmotion();
-
+        String[] names = {"Sidney", "Katrin", "Jenny", "Hanna", "Mary", "Judy", "Shain"};
+        Emotion[] emotions = {Emotion.AMAZED, Emotion.ASTONISHED, Emotion.DELIGHTED, Emotion.ECSTATIC, Emotion.OVERJOYED, Emotion.SHOCKED, Emotion.THRILLED};
         for (int i = 0; i < 7; i++){
-            Enchantress e = new Enchantress(names[i]);
-            e.setEmotion();
-            e.makeDinner();
-            e.prepareToyAndWish();
-            e.makeGift();
-            e.makeSetOfDishes();
+            Enchantress e = new Enchantress(names[i], emotions[i]);
             enchantresses.add(e);
         }
     }
 
     public void part1(){
-        System.out.println("There was a " + princess + "'s " + "christines in the kingdom.");
-        System.out.println("7 enchantresses were invited to celebrate this event, wish a lot of goods and give some gifts.");
-        System.out.print("They weren't in need to walk, because they can do magic!");
-        for (Enchantress e: enchantresses){
-            System.out.println("\n");
-            System.out.println(e.methodOfAppearance());
-            System.out.println(e.giveGift());
+        Toys[] toys = {Toys.TOY_PRINCESS, Toys.DOLL, Toys.DRESS, Toys.BOOK_OF_FAIRY_TALES, Toys.TOY_CASTLE, Toys.BOX_OF_SWEETS, Toys.TEDDY_BEAR};
+        Qualities[] qualities = {Qualities.BEAUTY, Qualities.COURAGE, Qualities.DETERMINATION, Qualities.ENDURANCE, Qualities.INTELLIGENCE, Qualities.KINDNESS, Qualities.POLITENESS};
+        System.out.println(princess);
+        for (int i = 0; i < 7; i++){
+
+            enchantresses.get(i).beInvited();
+            Gift gift = new Gift(toys[i], qualities[i]);
+
+            try{
+                enchantresses.get(i).makeGift(gift, princess);
+            } catch (GiftOverflow go){
+                System.out.println(go.getMessage());
+                System.out.println("\n");
+                break;
+            } catch (DoNotLikeGift dnlg){
+                System.out.println(dnlg.getMessage());
+            }
         }
-        System.out.println("\n");
-        System.out.println("After recieving all gifts " + princess.showEmotion());
     }
 
     public void part2(){
-        System.out.println("After the " + princess + "'s christines all the enchantresses went to a gala dinner in honor of this momentous event, where sumptuous treats were prepared for them.");
-        for (Enchantress e: enchantresses){
+        Material[] materials = {Material.CRYSTAL, Material.GOLDEN, Material.PORCELAIN, Material.SILVER};
+        PreciousStones[] stones = {PreciousStones.BRILLIANTS, PreciousStones.EMERALDS, PreciousStones.RUBIES, PreciousStones.SAPPIRES};
+        DinnerDishes[] dinnerDishes = {DinnerDishes.PIGS_IN_BLANKETS, DinnerDishes.CORONATION_CHICKEN, DinnerDishes.ETON_MESS,
+                DinnerDishes.YORKSHIRE_PUDDING, DinnerDishes.COLD_ROAST_BEEF_AND_HORSERADISH_ROLLS, DinnerDishes.SALMON_AND_CUCUMBER_SANDWICHES, DinnerDishes.STRAWBERRIES_AND_CREAM};
+        for (int i = 0; i < 7; i++){
+            enchantresses.get(i).getSetOfDishes(new SetOfDishes(new Plate(materials[i%4], stones[i%4]),
+                    new Fork(materials[i%4]), new Spoon(materials[i%4]), new Knife(materials[i%4]), new Glass(materials[i%4])));
+            enchantresses.get(i).getDinner(dinnerDishes[i]);
+            System.out.println(enchantresses.get(i));
             System.out.println("\n");
-            System.out.println(e.getSetOfDishes());
-            System.out.println(e.getDinner());
-            System.out.println(e.showEmotion());
         }
-        System.out.println("\n");
-        System.out.println("Then the dinner was continuing, but....");
-        System.out.println("\n");
+        System.out.println(witch + "\n");
     }
 
     public void part3(){
-        System.out.println(witch.methodOfAppearance());
-        System.out.print("She was ");
-        System.out.print(witch.showEmotion());
-        System.out.println(" because could miss the party and nobody cared about her.");
-        System.out.println("She wasn't invited, because all thought that she dead lot's of years ago or was enchanted.");
-        System.out.println("More than 50 years she was sitting inside her tower, and naturally everyone forgot about her.");
+        System.out.println(princess + " got this gifts:");
+        princess.showGifts();
     }
 
     @Override

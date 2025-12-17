@@ -1,5 +1,5 @@
-package Dishes;
+package dishes;
 
 public enum Material{
-    GOLDEN, SILVER, PORCELAIN, CRYSTAL, ANOTHER_MATERIAL
+    GOLDEN, SILVER, PORCELAIN, CRYSTAL
 }

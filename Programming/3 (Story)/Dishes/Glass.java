@@ -1,6 +1,6 @@
-package Dishes;
+package dishes;
 
-public class Glass extends Dishes{
+public class Glass{
     protected Material material;
 
     public Glass(Material material){
