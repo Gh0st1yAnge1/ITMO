@@ -3,10 +3,10 @@ import exceptions.DoNotLikeGift;
 import exceptions.GiftOverflow;
 import gifts.*;
 import heroes.*;
+
 import java.util.ArrayList;
 
 public class StoryText {
-
 
     ArrayList<Enchantress> enchantresses = new ArrayList<>();
     Princess princess = new Princess("Alice", Emotion.AMUSED);

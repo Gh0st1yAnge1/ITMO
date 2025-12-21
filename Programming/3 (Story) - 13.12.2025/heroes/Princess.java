@@ -6,14 +6,8 @@ import interfaces.Reciever;
 
 public class Princess extends Hero implements Reciever {
 
-    private String name;
-    private Emotion emotion;
-
-
     public Princess(String name, Emotion emotion){
         super(name, emotion);
-        this.name = name;
-        this.emotion = emotion;
     }
 
     public void showGifts(){
@@ -22,7 +16,7 @@ public class Princess extends Hero implements Reciever {
 
     @Override
     public String toString() {
-        return "Princess " + name + " feels " + emotion;
+        return "Princess " + getName() + " feels " + getEmotion();
     }
 
     @Override
@@ -31,7 +25,7 @@ public class Princess extends Hero implements Reciever {
             throw new GiftOverflow();
         } else{
             christineGifts.add(gift);
-            System.out.println(name + " got " + gift);
+            System.out.println(getName() + " got " + gift);
         }
         return gift;
     }
