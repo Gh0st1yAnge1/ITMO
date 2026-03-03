@@ -1,3 +1,5 @@
+set search_path to s502467, public;
+
 create table Band(
     id smallserial primary key ,
     name varchar(50) not null,
