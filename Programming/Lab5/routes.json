@@ -1,12 +1,1 @@
-{
-  "1": {
-    "id": 1,
-    "name": "asdf",
-    "coordinates": {
-      "x": 12.0,
-      "y": 12.0
-    },
-    "creationDate": "2026-03-13",
-    "distance": 1234.0
-  }
-}
+{}
