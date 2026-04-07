@@ -25,7 +25,6 @@ public class Clear implements Command{
         collectionManager.clear();
         IdGenerator.reset();
         System.out.println("Successfully cleared!");
-        commandManager.execute("save");
     }
 
     @Override

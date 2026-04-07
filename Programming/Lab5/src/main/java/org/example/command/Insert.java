@@ -37,7 +37,6 @@ public class Insert implements Command{
             Route route = routeBuilder.buildRoute();
             collectionManager.insert(key, route);
             System.out.println("Element inserted.");
-            commandManager.execute("save");
 
         } catch (NumberFormatException ex){
             System.out.println("Key must be integer.");

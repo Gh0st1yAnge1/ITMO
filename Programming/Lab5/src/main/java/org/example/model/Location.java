@@ -1,6 +1,11 @@
 package org.example.model;
 
-public class Location{
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Location implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private double x;
     private float floatY;
     private int intY;

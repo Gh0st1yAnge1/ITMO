@@ -32,8 +32,6 @@ public class RouteBuilder {
             System.out.println("user stopped creating route.");
             return null;
         }
-
-
         return new Route(name, coordinates, from, to, distance);
     }
 }

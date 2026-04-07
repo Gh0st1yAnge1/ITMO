@@ -2,9 +2,13 @@ package org.example.model;
 
 import org.example.util.IdGenerator;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Route implements Comparable<Route>{
+public class Route implements Comparable<Route>, Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private final Integer id;
     private String name;
     private Coordinates coordinates;
