@@ -32,12 +32,9 @@ BEGIN
 			'Sex of pithecanthropus does not match the recommended one.'
 		);
 
-		DELETE FROM Invention_pithec_action
-		WHERE id = NEW.id;
-
-		RAISE NOTICE 'This "insert" operation does not match the rule: Pithecanthropus.sex = Invention_id.suggested_sex_of_user.'
+		RAISE NOTICE 'This "insert" operation does not match the rule: Pithecanthropus.sex = Invention_id.suggested_sex_of_user.';
 	END IF;
-	RETURN NULL;
+	RETURN NEW;
 END;
 
 $$ LANGUAGE plpgsql;
