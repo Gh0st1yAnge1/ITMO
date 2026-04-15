@@ -1,5 +1,5 @@
-CREATE FUNCTION remove_mismatched_gender_value_function()
-RETURNS TRIGGER $$
+CREATE OR REPLACE FUNCTION remove_mismatched_gender_value_function()
+RETURNS TRIGGER AS $$
 DECLARE
 	pithec_sex varchar(6);
 	suggested_sex varchar(6);
@@ -12,9 +12,10 @@ BEGIN
 	FROM Invention i
 	JOIN Invention_type it ON
 	it.invention_id = i.id
-	WHERE i.id = NEW.invention_id;
+	WHERE i.id = NEW.invention_id
+	LIMIT 1;
 
-	IF pithec_sex IS NOT NULL AND Suggested_sex IS NOT NULL AND pithec_sex != suggested_sex THEN 
+	IF pithec_sex != suggested_sex AND pithec_sex != 'all' AND suggested_sex != 'all' THEN 
 		INSERT INTO ipaLog(
 			deleted_action,
 			deleted_pithec,
@@ -33,6 +34,7 @@ BEGIN
 		);
 
 		RAISE NOTICE 'This "insert" operation does not match the rule: Pithecanthropus.sex = Invention_id.suggested_sex_of_user.';
+		RETURN NULL;
 	END IF;
 	RETURN NEW;
 END;
